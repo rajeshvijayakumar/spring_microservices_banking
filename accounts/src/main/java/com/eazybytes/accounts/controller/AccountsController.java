@@ -1,7 +1,7 @@
 package com.eazybytes.accounts.controller;
 
 
-import com.eazybytes.accounts.constants.AccountConstants;
+import com.eazybytes.accounts.constants.AccountsConstants;
 import com.eazybytes.accounts.dto.CustomerDto;
 import com.eazybytes.accounts.dto.ResponseDto;
 import com.eazybytes.accounts.service.IAccountsService;
@@ -28,7 +28,7 @@ public class AccountsController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(new ResponseDto(
-                        AccountConstants.STATUS_201, AccountConstants.MESSAGE_201));
+                        AccountsConstants.STATUS_201, AccountsConstants.MESSAGE_201));
     }
 
     @GetMapping("/fetch")
@@ -45,11 +45,11 @@ public class AccountsController {
         if(isUpdated) {
             return ResponseEntity
                     .status(HttpStatus.OK)
-                    .body(new ResponseDto(AccountConstants.STATUS_200, AccountConstants.MESSAGE_200));
+                    .body(new ResponseDto(AccountsConstants.STATUS_200, AccountsConstants.MESSAGE_200));
         }else{
             return ResponseEntity
                     .status(HttpStatus.EXPECTATION_FAILED)
-                    .body(new ResponseDto(AccountConstants.STATUS_417, AccountConstants.MESSAGE_417_UPDATE));
+                    .body(new ResponseDto(AccountsConstants.STATUS_417, AccountsConstants.MESSAGE_417_UPDATE));
         }
     }
 }

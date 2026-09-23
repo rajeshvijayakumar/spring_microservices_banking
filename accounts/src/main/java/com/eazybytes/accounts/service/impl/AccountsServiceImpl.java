@@ -1,7 +1,7 @@
 package com.eazybytes.accounts.service.impl;
 
 
-import com.eazybytes.accounts.constants.AccountConstants;
+import com.eazybytes.accounts.constants.AccountsConstants;
 import com.eazybytes.accounts.dto.AccountsDto;
 import com.eazybytes.accounts.dto.CustomerDto;
 import com.eazybytes.accounts.entity.Accounts;
@@ -105,8 +105,8 @@ public class AccountsServiceImpl implements IAccountsService {
         long randomAccNumber = 1000000000L + new Random().nextInt(900000000);
 
         newAccount.setAccountNumber(randomAccNumber);
-        newAccount.setAccountType(AccountConstants.SAVINGS);
-        newAccount.setBranchAddress(AccountConstants.ADDRESS);
+        newAccount.setAccountType(AccountsConstants.SAVINGS);
+        newAccount.setBranchAddress(AccountsConstants.ADDRESS);
         newAccount.setCreatedAt(Instant.now());
         newAccount.setCreatedBy("Anonymous user");
         return newAccount;
