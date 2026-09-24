@@ -20,25 +20,25 @@ import java.time.Instant;
 @Setter
 @ToString
 @MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
+@EntityListeners(AuditingEntityListener.class) // need to set the listener for auditing
 public class BaseEntity {
 
     @Column(name = "created_at", updatable = false)
-    @CreatedDate
+    @CreatedDate // need to set during auditing
     @CreationTimestamp
     private Instant createdAt;
 
-    @CreatedBy
+    @CreatedBy  // need to set during auditing
     @Column(name = "created_by", length = 20, updatable = false)
     private String createdBy;
 
-    @LastModifiedDate
+    @LastModifiedDate  // need to set during auditing
     @UpdateTimestamp
     @Column(name = "updated_at", insertable = false)
     private Instant updatedAt;
 
     @Column(name = "updated_by", length = 20, insertable = false)
-    @LastModifiedBy
+    @LastModifiedBy  // need to set during auditing
     private String updatedBy;
 
 }
