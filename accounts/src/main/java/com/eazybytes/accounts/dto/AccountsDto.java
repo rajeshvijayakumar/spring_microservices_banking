@@ -2,19 +2,21 @@ package com.eazybytes.accounts.dto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 
 @Data
 public class AccountsDto {
 
-    @Column(name="account_number")
-    @Id
+    @NotEmpty(message = "AccountNumber can not be a null or empty")
+    @Pattern(regexp="(^$|[0-9]{10})",message = "AccountNumber must be 10 digits")
     private Long accountNumber;
 
-    @Column(name="account_type")
+    @NotEmpty(message = "AccountType can not be a null or empty")
     private String accountType;
 
-    @Column(name="branch_address")
+    @NotEmpty(message = "BranchAddress can not be a null or empty")
     private String branchAddress;
 }
