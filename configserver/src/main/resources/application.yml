@@ -2,13 +2,20 @@ spring:
   application:
     name: "configserver"
   profiles:
-    active: native
+    active: git
+  #active: native
   cloud:
     config:
       server:
-        native:
+        #native:
           #search-locations: "classpath:/config"
-          search-locations: "file:///Users//rajeshvijayakumar//Documents//config"
+          #search-locations: "file:///Users//rajeshvijayakumar//Documents//config"
+        git:
+          uri: "https://github.com/eazybytes/eazybytes-config.git"
+          default-label: main # ideally it should be the branch name where the latest config stored.
+          timeout: 5 # throw an exception if it goes beyond 5 seconds
+          clone-on-start: true # telling config server to clone at the start up of the config server
+          force-pull: true # whenever you start or restart the config server, you will be overiding the older one to have new config always..
 
 server:
   port: 8071
