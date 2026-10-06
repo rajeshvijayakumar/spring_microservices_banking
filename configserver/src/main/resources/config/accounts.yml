@@ -1,0 +1,11 @@
+build:
+  version: "3.0"
+
+accounts:
+  message: "Welcome to EazyBank accounts related local APIs "
+  contactDetails:
+    name: "Rajesh Vijayakumar - Developer"
+    email: "info@rajeshvijayakumar.com"
+  onCallSupport:
+    - (936) 307-9625
+    - (936) 370-9625
