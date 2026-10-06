@@ -11,7 +11,7 @@ spring:
           #search-locations: "classpath:/config"
           #search-locations: "file:///Users//rajeshvijayakumar//Documents//config"
         git:
-          uri: "https://github.com/eazybytes/eazybytes-config.git"
+          uri: "https://github.com/rajeshvijayakumar/ezybyts-config.git"
           default-label: main # ideally it should be the branch name where the latest config stored.
           timeout: 5 # throw an exception if it goes beyond 5 seconds
           clone-on-start: true # telling config server to clone at the start up of the config server
