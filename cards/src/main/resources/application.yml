@@ -13,7 +13,6 @@ spring:
   h2:
     console:
       enabled: true
-      path: /h2-console
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
@@ -21,6 +20,8 @@ spring:
     show-sql: true
   config:
     import: "optional:configserver:http://localhost:8071/"
+    label: main
+
 management:
   endpoints:
     web:

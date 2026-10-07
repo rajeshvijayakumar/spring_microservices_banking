@@ -21,6 +21,8 @@ spring:
     show-sql: true
   config:
     import: "optional:configserver:http://localhost:8071/"
+    label: main
+
 management:
   endpoints:
     web:

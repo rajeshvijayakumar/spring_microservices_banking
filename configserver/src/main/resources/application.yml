@@ -16,6 +16,18 @@ spring:
           timeout: 5 # throw an exception if it goes beyond 5 seconds
           clone-on-start: true # telling config server to clone at the start up of the config server
           force-pull: true # whenever you start or restart the config server, you will be overiding the older one to have new config always..
+          skip-ssl-validation: true
+          username: "rajeshvijayakumar"
+          password: "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"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+encrypt:
+  key: "45D81EC1EF61DF9AD8D3E5BB397F9"
 
 server:
   port: 8071
