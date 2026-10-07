@@ -7,6 +7,9 @@ spring:
   cloud:
     config:
       server:
+        monitor:
+          github:
+            validation-enabled: false
         #native:
           #search-locations: "classpath:/config"
           #search-locations: "file:///Users//rajeshvijayakumar//Documents//config"
