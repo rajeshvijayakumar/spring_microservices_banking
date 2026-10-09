@@ -1,0 +1,63 @@
+services:
+  configserver:
+    image: "rajeshvjlearn/configserver:v0.0.1"
+    container_name: configserver-ms
+    ports:
+      - "8071:8071"
+    healthcheck:
+      test: "curl --fail --silent localhost:8071/actuator/health/readiness | grep UP || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - eazybank
+  accounts:
+    image: "rajeshvjlearn/accounts:v0.0.1"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    depends_on:
+      configserver:
+        condition: service_completed_successfully
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - eazybank
+  loans:
+    image: "rajeshvjlearn/loans:v0.0.1"
+    container_name: loans-ms
+    ports:
+      - "8090:8090"
+    depends_on:
+      configserver:
+        condition: service_completed_successfully
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - eazybank
+  cards:
+    image: "rajeshvjlearn/cards:v0.0.1"
+    container_name: cards-ms
+    ports:
+      - "9000:9000"
+    depends_on:
+      configserver:
+        condition: service_completed_successfully
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - eazybank
+networks:
+  eazybank:
+    driver: "bridge"
