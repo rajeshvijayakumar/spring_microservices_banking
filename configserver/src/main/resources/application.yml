@@ -5,6 +5,8 @@ spring:
     active: git
   #active: native
   cloud:
+    bus:
+      enabled: false
     config:
       server:
         monitor:
@@ -23,11 +25,11 @@ spring:
           username: "rajeshvijayakumar"
           password: "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"
 
-  rabbitmq:
-    host: "localhost"
-    port: 5672
-    username: "guest"
-    password: "guest"
+#  rabbitmq:
+#    host: "localhost"
+#    port: 5672
+#    username: "guest"
+#    password: "guest"
 
 management:
   endpoints:
