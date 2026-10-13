@@ -120,7 +120,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 				<image>
-					<name>rajeshvjlearn/${project.artifactId}:v1</name>
+					<name>rajeshvjlearn/${project.artifactId}:v2</name>
 				</image>
 				</configuration>
 			</plugin>
@@ -143,7 +143,7 @@
 <!--						</platforms>-->
 <!--					</from>-->
 					<to>
-						<image>rajeshvjlearn/${project.artifactId}:v1</image>
+						<image>rajeshvjlearn/${project.artifactId}:v2</image>
 					</to>
 				</configuration>
 			</plugin>
