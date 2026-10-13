@@ -16,7 +16,7 @@ services:
       service: network-deploy-service
 
   configserver:
-    image: "rajeshvjlearn/configserver:v1.0.0"
+    image: "rajeshvjlearn/configserver:v1"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -36,7 +36,7 @@ services:
       service: microservice-base-config
 
   accounts:
-    image: "rajeshvjlearn/accounts:v1.0.0"
+    image: "rajeshvjlearn/accounts:v1"
     container_name: accounts-ms
     ports:
       - "8080:8080"
@@ -50,7 +50,7 @@ services:
       service: microservice-base-config
 
   loans:
-    image: "rajeshvjlearn/loans:v1.0.0"
+    image: "rajeshvjlearn/loans:v1"
     container_name: loans-ms
     ports:
       - "8090:8090"
@@ -64,7 +64,7 @@ services:
       service: microservice-base-config
 
   cards:
-    image: "rajeshvjlearn/cards:v1.0.0"
+    image: "rajeshvjlearn/cards:v1"
     container_name: cards-ms
     ports:
       - "9000:9000"
