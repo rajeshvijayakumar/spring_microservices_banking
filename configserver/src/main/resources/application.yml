@@ -23,7 +23,7 @@ spring:
           force-pull: true # whenever you start or restart the config server, you will be overiding the older one to have new config always..
           skip-ssl-validation: true
           username: "rajeshvijayakumar"
-          password: "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"
+          password: "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"
 
 #  rabbitmq:
 #    host: "localhost"
