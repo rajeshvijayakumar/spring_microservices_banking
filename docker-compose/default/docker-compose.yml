@@ -29,28 +29,30 @@ services:
       file: common-config.yml
       service: microservice-db-config
 
-#  rabbit:
-#    image: rabbitmq:4-management
-#    hostname: rabbitmq
-#    ports:
-#      - "5672:5672"
-#      - "15672:15672"
-#    healthcheck:
-#      test: rabbitmq-diagnostics check_port_connectivity
-#      interval: 10s
-#      timeout: 5s
-#      retries: 10
-#      start_period: 5s
-#    extends:
-#      file: common-config.yml
-#      service: network-deploy-service
+  rabbit:
+    image: rabbitmq:4-management
+    hostname: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+    healthcheck:
+      test: rabbitmq-diagnostics check_port_connectivity
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+    extends:
+      file: common-config.yml
+      service: network-deploy-service
 
   configserver:
-    build:
-      context: ../../configserver # The path to the folder containing your pom.xml and Dockerfile
-      dockerfile: Dockerfile
     image: "rajeshvjlearn/configserver:v2"
     container_name: configserver-ms
+    restart: unless-stopped
     ports:
       - "8071:8071"
     command: >
@@ -60,7 +62,7 @@ services:
 #      rabbit:
 #        condition: service_healthy
     healthcheck:
-      test: "curl --fail --silent localhost:8071/actuator/health/readiness | grep UP || exit 1"
+      test: [ "CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/8071 && printf 'GET /actuator/health/readiness HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3 && grep -q '\"status\":\"UP\"' <&3" ]
       interval: 10s
       timeout: 30s
       retries: 10
