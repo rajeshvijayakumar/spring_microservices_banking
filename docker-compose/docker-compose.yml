@@ -127,6 +127,24 @@ services:
       file: common-config.yml
       service: microservice-eureka-config
 
+  loans1:
+    image: "rajeshvjlearn/loans:${IMAGE_TAG:-v2}"
+    container_name: loans-ms1
+    ports:
+      - "8091:8090"
+    #    environment:
+    #      SPRING_DATASOURCE_URL: "jdbc:mysql://loansdb:3306/loansdb"
+    depends_on:
+      configserver:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+      loansdb:
+        condition: service_healthy
+    extends:
+      file: common-config.yml
+      service: microservice-eureka-config
+
   cards:
     image: "rajeshvjlearn/cards:${IMAGE_TAG:-v2}"
     container_name: cards-ms
