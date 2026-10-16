@@ -22,6 +22,12 @@ spring:
   config:
     import: "optional:configserver:http://localhost:8071/"
     label: main
+  http:
+    serviceclient:
+      loans:
+        base-url: lb://loans
+      cards:
+        base-url: lb://cards
 #  rabbitmq:
 #    host: "localhost"
 #    port: 5672
