@@ -11,7 +11,8 @@ spring:
         webflux:
           discovery:
             locator:
-              enabled: true
+              enabled: false # default routes(ex: http://locahost:8072/account/create)) will be disabled and our custom routing will be only accessible (ex: http://locahost:8072/eaxybank/account/create)
+              lowerCaseServiceId: true
 
 management:
   endpoints:
@@ -36,5 +37,5 @@ logging:
     console: ${CONSOLE_LOG_PATTERN:%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) - %cyan(%msg%n)}
   level:
     com:
-      eazybank:
+      eazybytes:
         gatewayserver: DEBUG
