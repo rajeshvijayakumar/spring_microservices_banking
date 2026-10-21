@@ -85,7 +85,7 @@
 				<version>3.5.2</version>
 				<configuration>
 					<to>
-						<image>eazybytes/${project.artifactId}:v1</image>
+						<image>rajeshvjlearn/${project.artifactId}:v2</image>
 					</to>
 				</configuration>
 			</plugin>

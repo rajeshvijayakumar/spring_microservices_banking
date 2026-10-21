@@ -22,41 +22,41 @@ services:
 #      file: common-config.yml
 #      service: network-deploy-service
 
-  accountsdb:
-    container_name: accountsdb
-    ports:
-      - "3306:3306"
-    volumes:
-      - /Users/rajeshvijayakumar/Desktop/mysql/accounts-data:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: accountsdb
-    extends:
-      file: common-config.yml
-      service: microservice-db-config
-
-  loansdb:
-    container_name: loanssdb
-    ports:
-      - "3307:3306"
-    volumes:
-      - /Users/rajeshvijayakumar/Desktop/mysql/loans-data:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: loansdb
-    extends:
-      file: common-config.yml
-      service: microservice-db-config
-
-  cardsdb:
-    container_name: cardsdb
-    ports:
-      - "3308:3306"
-    volumes:
-      - /Users/rajeshvijayakumar/Desktop/mysql/cards-data:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: cardsdb
-    extends:
-      file: common-config.yml
-      service: microservice-db-config
+#  accountsdb:
+#    container_name: accountsdb
+#    ports:
+#      - "3306:3306"
+#    volumes:
+#      - /Users/rajeshvijayakumar/Desktop/mysql/accounts-data:/var/lib/mysql
+#    environment:
+#      MYSQL_DATABASE: accountsdb
+#    extends:
+#      file: common-config.yml
+#      service: microservice-db-config
+#
+#  loansdb:
+#    container_name: loanssdb
+#    ports:
+#      - "3307:3306"
+#    volumes:
+#      - /Users/rajeshvijayakumar/Desktop/mysql/loans-data:/var/lib/mysql
+#    environment:
+#      MYSQL_DATABASE: loansdb
+#    extends:
+#      file: common-config.yml
+#      service: microservice-db-config
+#
+#  cardsdb:
+#    container_name: cardsdb
+#    ports:
+#      - "3308:3306"
+#    volumes:
+#      - /Users/rajeshvijayakumar/Desktop/mysql/cards-data:/var/lib/mysql
+#    environment:
+#      MYSQL_DATABASE: cardsdb
+#    extends:
+#      file: common-config.yml
+#      service: microservice-db-config
 
   configserver:
     image: "rajeshvjlearn/configserver:${IMAGE_TAG:-v2}"
@@ -96,6 +96,12 @@ services:
     container_name: accounts-ms
     ports:
       - "8080:8080"
+    healthcheck:
+      test: [ "CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/8080 && printf 'GET /actuator/health/readiness HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3 && grep -q '\"status\":\"UP\"' <&3" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
 #    environment:
 #      SPRING_DATASOURCE_URL: "jdbc:mysql://accountsdb:3306/accountsdb"
     depends_on:
@@ -103,8 +109,8 @@ services:
         condition: service_healthy
       eurekaserver:
         condition: service_healthy
-      accountsdb:
-        condition: service_healthy
+#      accountsdb:
+#        condition: service_healthy
     extends:
       file: common-config.yml
       service: microservice-eureka-config
@@ -114,6 +120,12 @@ services:
     container_name: loans-ms
     ports:
       - "8090:8090"
+    healthcheck:
+      test: [ "CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/8090 && printf 'GET /actuator/health/readiness HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3 && grep -q '\"status\":\"UP\"' <&3" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
 #    environment:
 #      SPRING_DATASOURCE_URL: "jdbc:mysql://loansdb:3306/loansdb"
     depends_on:
@@ -121,35 +133,41 @@ services:
         condition: service_healthy
       eurekaserver:
         condition: service_healthy
-      loansdb:
-        condition: service_healthy
+#      loansdb:
+#        condition: service_healthy
     extends:
       file: common-config.yml
       service: microservice-eureka-config
 
-  loans1:
-    image: "rajeshvjlearn/loans:${IMAGE_TAG:-v2}"
-    container_name: loans-ms1
-    ports:
-      - "8091:8090"
-    #    environment:
-    #      SPRING_DATASOURCE_URL: "jdbc:mysql://loansdb:3306/loansdb"
-    depends_on:
-      configserver:
-        condition: service_healthy
-      eurekaserver:
-        condition: service_healthy
-      loansdb:
-        condition: service_healthy
-    extends:
-      file: common-config.yml
-      service: microservice-eureka-config
+#  loans1:
+#    image: "rajeshvjlearn/loans:${IMAGE_TAG:-v2}"
+#    container_name: loans-ms1
+#    ports:
+#      - "8091:8090"
+#    #    environment:
+#    #      SPRING_DATASOURCE_URL: "jdbc:mysql://loansdb:3306/loansdb"
+#    depends_on:
+#      configserver:
+#        condition: service_healthy
+#      eurekaserver:
+#        condition: service_healthy
+##      loansdb:
+##        condition: service_healthy
+#    extends:
+#      file: common-config.yml
+#      service: microservice-eureka-config
 
   cards:
     image: "rajeshvjlearn/cards:${IMAGE_TAG:-v2}"
     container_name: cards-ms
     ports:
       - "9000:9000"
+    healthcheck:
+      test: [ "CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/9000 && printf 'GET /actuator/health/readiness HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3 && grep -q '\"status\":\"UP\"' <&3" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
 #    environment:
 #      SPRING_DATASOURCE_URL: "jdbc:mysql://cardsdb:3306/cardsdb"
     depends_on:
@@ -157,7 +175,23 @@ services:
         condition: service_healthy
       eurekaserver:
         condition: service_healthy
-      cardsdb:
+#      cardsdb:
+#        condition: service_healthy
+    extends:
+      file: common-config.yml
+      service: microservice-eureka-config
+
+  gatewayserver:
+    image: "rajeshvjlearn/gatewayserver:${IMAGE_TAG:-v2}"
+    container_name: gatewayserver-ms
+    ports:
+      - "8072:8072"
+    depends_on:
+      accounts:
+        condition: service_healthy
+      loans:
+        condition: service_healthy
+      cards:
         condition: service_healthy
     extends:
       file: common-config.yml
