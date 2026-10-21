@@ -22,17 +22,21 @@ public class GatewayserverApplication {
 				//custom routing for accounts
 				.route(p -> p.path("/eazybank/accounts/**")
 						.filters(f -> f.rewritePath("/eazybank/accounts/(?<segment>.*)","/${segment}")
-								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
+								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString())
+								.circuitBreaker(config -> config.setName("accountsCircuitBreaker")
+										.setFallbackUri("forward:/contactSupport")))
 						.uri("lb://ACCOUNTS"))
 				//custom routing for loans
 				.route(p -> p.path("/eazybank/loans/**")
 						.filters(f -> f.rewritePath("/eazybank/loans/(?<segment>.*)","/${segment}")
-								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
+								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString())
+								.circuitBreaker(config -> config.setName("loansCircuitBreaker")))
 						.uri("lb://LOANS"))
 				//custom routing for cards
 				.route(p -> p.path("/eazybank/cards/**")
 						.filters(f -> f.rewritePath("/eazybank/cards/(?<segment>.*)","/${segment}")
-								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
+								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString())
+								.circuitBreaker(config -> config.setName("cardsCircuitBreaker")))
 						.uri("lb://CARDS"))
 				.build();
 	}
