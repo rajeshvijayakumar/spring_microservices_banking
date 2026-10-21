@@ -70,3 +70,11 @@ logging:
     com:
       eazybytes:
         accounts: DEBUG
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 10   # how many request it need to monitore before it decides to move from closed to open state
+      permittedNumberOfCallsInHalfOpenState: 2  # allow two request in the half open state and decides based on these request from open to closed state.
+      failureRateThreshold: 50 # if atleast 50% of my request fails, move from closed to open state.
+      waitDurationInOpenState: 10000 # waits for 10 seconds in open state before moving to half open and allowing partial traffic.
