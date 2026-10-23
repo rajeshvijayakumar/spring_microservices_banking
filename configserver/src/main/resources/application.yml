@@ -1,9 +1,8 @@
 spring:
   application:
-    name: "configserver"
+    name: configserver
   profiles:
     active: git
-  #active: native
   cloud:
     bus:
       enabled: false
@@ -45,32 +44,36 @@ management:
       health:
         probes:
           enabled: true
-  opentelemetry:
-    resource-attributes:
-      service.name: ${spring.application.name}
-      deployment.environment: "development"
-    logging:
-      export:
-        otlp:
-          endpoint: http://localhost:4318/v1/logs
+    opentelemetry:
+      resource-attributes:
+        service.name: ${spring.application.name}
+        deployment.environment: "development"
+      logging:
+        export:
+          otlp:
+            endpoint: http://localhost:4318/v1/logs
+      tracing:
+        export:
+          otlp:
+            endpoint: http://localhost:4318/v1/traces
     tracing:
-      export:
-        otlp:
-          endpoint: http://localhost:4318/v1/traces
-  tracing:
-    sampling:
-      probability: 1.0
-  otlp:
+      sampling:
+        probability: 1.0
+    otlp:
+      metrics:
+        export:
+          url: http://localhost:4318/v1/metrics
+          step: 10s
     metrics:
-      export:
-        url: http://localhost:4318/v1/metrics
-        step: 10s
-  metrics:
-    tags:
-      application: ${spring.application.name}
+      tags:
+        application: ${spring.application.name}
 
 encrypt:
   key: "45D81EC1EF61DF9AD8D3E5BB397F9"
 
 server:
   port: 8071
+
+logging:
+  pattern:
+    console: ${CONSOLE_LOG_PATTERN:%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) %magenta([traceId=%X{traceId:-},spanId=%X{spanId:-}]) - %cyan(%msg%n)}
