@@ -13,6 +13,5 @@ public interface LoansClient {
 
     @GetExchange(value = "/fetch", accept = "application/json")
     ResponseEntity<LoansDto> fetchLoanDetails(
-            @RequestHeader("eazybank-correlation-id") String correlationId,
             @RequestParam String mobileNumber);
 }
