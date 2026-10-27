@@ -129,12 +129,12 @@ create that schema on first boot. All three extend `microservice-db-config` from
 
 ```yaml
   configserver:
-    image: "rajeshvjlearn/configserver:${IMAGE_TAG:-v2}"
+    image: "rajeshvjlearn/configserver:${IMAGE_TAG:-v3}"
     container_name: configserver-ms
     ports:
       - "8071:8071"
 ```
-- `${IMAGE_TAG:-v2}` — image tag comes from the env file, defaulting to `v2` if unset. This is
+- `${IMAGE_TAG:-v3}` — image tag comes from the env file, defaulting to `v3` if unset. This is
   what lets qa/prod pin a specific, validated build instead of always tracking whatever tag moves
   in local dev.
 - `container_name` — fixed name per service (`configserver-ms`, etc.) rather than Compose's
@@ -164,7 +164,7 @@ Network, restart policy, memory limit — but **not** `microservice-configserver
 
 ```yaml
   accounts:
-    image: "rajeshvjlearn/accounts:${IMAGE_TAG:-v2}"
+    image: "rajeshvjlearn/accounts:${IMAGE_TAG:-v3}"
     container_name: accounts-ms
     ports:
       - "8080:8080"
@@ -204,7 +204,7 @@ Each env file supplies the same three variables; only the values differ.
 
 | Variable         | `.env` (local) | `qa.env`         | `prod.env`         |
 |-------------------|-----------------|-------------------|---------------------|
-| `IMAGE_TAG`       | `v2`            | pin a tested tag  | pin a tested tag    |
+| `IMAGE_TAG`       | `v3`            | pin a tested tag  | pin a tested tag    |
 | `SPRING_PROFILE`  | `default`       | `qa`              | `prod`              |
 | `DB_PASSWORD`     | `root`          | real qa password  | real prod password  |
 

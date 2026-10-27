@@ -185,7 +185,7 @@
 				<version>3.5.2</version>
 				<configuration>
 					<to>
-						<image>rajeshvjlearn/${project.artifactId}:v2</image>
+						<image>rajeshvjlearn/${project.artifactId}:v3</image>
 					</to>
 				</configuration>
 			</plugin>

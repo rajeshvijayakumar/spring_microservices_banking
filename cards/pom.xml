@@ -191,7 +191,7 @@
 <!--                        </platforms>-->
 <!--                    </from>-->
                     <to>
-                        <image>rajeshvjlearn/${project.artifactId}:v2</image>
+                        <image>rajeshvjlearn/${project.artifactId}:v3</image>
                     </to>
                 </configuration>
             </plugin>
