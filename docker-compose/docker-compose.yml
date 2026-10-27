@@ -58,7 +58,7 @@ services:
 #      file: common-config.yml
 #      service: microservice-db-config
   keycloak:
-    image: quay.io/keycloak/keycloak:26.7.3
+    image: quay.io/keycloak/keycloak:26.8.1
     container_name: keycloak
     ports:
       - "127.0.0.1:7080:8080"
@@ -131,8 +131,6 @@ services:
   accounts:
     image: "rajeshvjlearn/accounts:${IMAGE_TAG:-v3}"
     container_name: accounts-ms
-    ports:
-      - "8080:8080"
     healthcheck:
       test: [ "CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/8080 && printf 'GET /actuator/health/readiness HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3 && grep -q '\"status\":\"UP\"' <&3" ]
       interval: 10s
@@ -155,8 +153,6 @@ services:
   loans:
     image: "rajeshvjlearn/loans:${IMAGE_TAG:-v3}"
     container_name: loans-ms
-    ports:
-      - "8090:8090"
     healthcheck:
       test: [ "CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/8090 && printf 'GET /actuator/health/readiness HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3 && grep -q '\"status\":\"UP\"' <&3" ]
       interval: 10s
@@ -197,8 +193,6 @@ services:
   cards:
     image: "rajeshvjlearn/cards:${IMAGE_TAG:-v3}"
     container_name: cards-ms
-    ports:
-      - "9000:9000"
     healthcheck:
       test: [ "CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/9000 && printf 'GET /actuator/health/readiness HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3 && grep -q '\"status\":\"UP\"' <&3" ]
       interval: 10s
