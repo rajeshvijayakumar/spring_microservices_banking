@@ -4,13 +4,11 @@ spring:
   cloud:
     function:
       definition: email|sms # REST API path for combined call will be -> http://localhost:9010/emailsms
-  stream:
-    bindings:
-      emailsms-in-0: # Input Binding name and the function names also will be identifed as email, sms..
-        destination: send-communication # For Input binding, There should be the queue name "send-communication" inside the rabbitmq which can be utilised.
-        group: ${spring.application.name} # To avoid randomly generated queue names to channel, we must mention group name, with regard to 10 or 20 instances, it will assign to the same queue name.
-      emailsms-out-0:
-        destination: communication-sent
+    stream:
+      bindings:
+        emailsms-in-0: # Input Binding name and the function names also will be identifed as email, sms..
+          destination: send-communication # For Input binding, There should be the queue name "send-communication" inside the rabbitmq which can be utilised.
+          group: ${spring.application.name} # To avoid randomly generated queue names to channel, we must mention group name, with regard to 10 or 20 instances, it will assign to the same queue name.
   rabbitmq:
     host: localhost
     port: 5672

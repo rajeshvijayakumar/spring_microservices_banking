@@ -3,6 +3,7 @@ package com.eazybytes.accounts.service.impl;
 
 import com.eazybytes.accounts.constants.AccountsConstants;
 import com.eazybytes.accounts.dto.AccountsDto;
+import com.eazybytes.accounts.dto.AccountsMsgDto;
 import com.eazybytes.accounts.dto.CustomerDto;
 import com.eazybytes.accounts.entity.Accounts;
 import com.eazybytes.accounts.entity.Customer;
@@ -17,6 +18,7 @@ import io.micrometer.core.instrument.MeterRegistry;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -31,6 +33,7 @@ public class AccountsServiceImpl implements IAccountsService {
 
     private AccountsRepository accountsRepository;
     private CustomerRepository customerRepository;
+    private StreamBridge streamBridge;
 
     private MeterRegistry meterRegistry;
 
@@ -56,7 +59,19 @@ public class AccountsServiceImpl implements IAccountsService {
                 newAccount.getAccountNumber(), savedCustomer.getCustomerId());
 
         meterRegistry.counter("accounts.operations", "operation", "created").increment();
+        sendCommunication(newAccount, savedCustomer);
     }
+
+    private void sendCommunication(Accounts account, Customer customer) {
+        var accountsMsgDto = new AccountsMsgDto(account.getAccountNumber(), customer.getName(),
+                customer.getEmail(), customer.getMobileNumber());
+        logger.info("Sending Communication request for the details: {}", accountsMsgDto);
+
+        //'sendCommunication-out-0' binding name should match with binding name declared in the application.yml file
+        var result = streamBridge.send("sendCommunication-out-0", accountsMsgDto);
+        logger.info("Is the Communication request successfully triggered ? : {}", result);
+    }
+
 
     /**
      * @param mobileNumber - Input Mobile Number
