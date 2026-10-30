@@ -23,7 +23,7 @@ import org.springframework.web.service.registry.ImportHttpServices;
 		info = @Info(
 				title = "Accounts microservice REST API Documentation",
 				description = "EazyBank Accounts microservice REST API Documentation",
-				version = "v3",
+				version = "v4",
 				contact = @Contact(
 						name = "Rajesh Vijayakumar",
 						email = "rajeshvj.learn@gmail.com",

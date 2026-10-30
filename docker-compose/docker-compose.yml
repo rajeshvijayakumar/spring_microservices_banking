@@ -96,7 +96,7 @@ services:
       file: common-config.yml
       service: network-deploy-service
   configserver:
-    image: "rajeshvjlearn/configserver:${IMAGE_TAG:-v3}"
+    image: "rajeshvjlearn/configserver:${IMAGE_TAG:-v4}"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -111,7 +111,7 @@ services:
       service: microservice-base-config
 
   eurekaserver:
-    image: "rajeshvjlearn/eurekaserver:${IMAGE_TAG:-v3}"
+    image: "rajeshvjlearn/eurekaserver:${IMAGE_TAG:-v4}"
     container_name: eurekaserver-ms
     ports:
       - "8761:8761"
@@ -129,7 +129,7 @@ services:
       service: microservice-configserver-config
 
   accounts:
-    image: "rajeshvjlearn/accounts:${IMAGE_TAG:-v3}"
+    image: "rajeshvjlearn/accounts:${IMAGE_TAG:-v4}"
     container_name: accounts-ms
     healthcheck:
       test: [ "CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/8080 && printf 'GET /actuator/health/readiness HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3 && grep -q '\"status\":\"UP\"' <&3" ]
@@ -151,7 +151,7 @@ services:
       service: microservice-eureka-config
 
   loans:
-    image: "rajeshvjlearn/loans:${IMAGE_TAG:-v3}"
+    image: "rajeshvjlearn/loans:${IMAGE_TAG:-v4}"
     container_name: loans-ms
     healthcheck:
       test: [ "CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/8090 && printf 'GET /actuator/health/readiness HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3 && grep -q '\"status\":\"UP\"' <&3" ]
@@ -173,7 +173,7 @@ services:
       service: microservice-eureka-config
 
 #  loans1:
-#    image: "rajeshvjlearn/loans:${IMAGE_TAG:-v3}"
+#    image: "rajeshvjlearn/loans:${IMAGE_TAG:-v4}"
 #    container_name: loans-ms1
 #    ports:
 #      - "8091:8090"
@@ -191,7 +191,7 @@ services:
 #      service: microservice-eureka-config
 
   cards:
-    image: "rajeshvjlearn/cards:${IMAGE_TAG:-v3}"
+    image: "rajeshvjlearn/cards:${IMAGE_TAG:-v4}"
     container_name: cards-ms
     healthcheck:
       test: [ "CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/9000 && printf 'GET /actuator/health/readiness HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3 && grep -q '\"status\":\"UP\"' <&3" ]
@@ -213,7 +213,7 @@ services:
       service: microservice-eureka-config
 
   gatewayserver:
-    image: "rajeshvjlearn/gatewayserver:${IMAGE_TAG:-v3}"
+    image: "rajeshvjlearn/gatewayserver:${IMAGE_TAG:-v4}"
     container_name: gatewayserver-ms
     ports:
       - "8072:8072"

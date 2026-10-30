@@ -18,7 +18,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 		info = @Info(
 				title = "Loans microservice REST API Documentation",
 				description = "EazyBank Loans microservice REST API Documentation",
-				version = "v3",
+				version = "v4",
 				contact = @Contact(
 						name = "Rajesh Vijayakumar",
 						email = "rajeshvj.learn@gmail.com",
