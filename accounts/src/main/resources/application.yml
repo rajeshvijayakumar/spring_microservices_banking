@@ -23,11 +23,15 @@ spring:
     import: "optional:configserver:http://localhost:8071/"
     label: main
   cloud:
+    function:
+      definition: updateCommunication # It should match the function name defined in the AccountsFunctions class you can give multiple function name by separator using ; semi-colon
     stream:
       bindings:
+        updateCommunication-in-0:
+          destination: communication-sent
+          group: ${spring.application.name}
         sendCommunication-out-0:
           destination: send-communication
-          group: ${spring.application.name}
   rabbitmq:
     host: "localhost"
     port: 5672
