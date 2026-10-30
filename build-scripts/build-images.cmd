@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 
 set "SCRIPT_DIR=%~dp0"
 for %%I in ("%SCRIPT_DIR%..") do set "PROJECT_ROOT=%%~fI"
-set "SERVICES=configserver eurekaserver accounts loans cards gatewayserver"
+set "SERVICES=configserver eurekaserver accounts loans cards gatewayserver message"
 set "PARALLEL=0"
 set "PUSH=0"
 set "ARGS="

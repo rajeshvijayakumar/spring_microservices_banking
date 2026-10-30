@@ -4,7 +4,7 @@ set -uo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 LOG_DIR="${SCRIPT_DIR}/.build-logs"
-DEFAULT_SERVICES=(configserver eurekaserver accounts loans cards gatewayserver)
+DEFAULT_SERVICES=(configserver eurekaserver accounts loans cards gatewayserver message)
 
 PARALLEL=false
 PUSH=false
