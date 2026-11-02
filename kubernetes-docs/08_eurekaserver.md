@@ -24,7 +24,7 @@ containers:
 - name: eurekaserver
   image: rajeshvjlearn/eurekaserver:v4
   ports:
-  - containerPort: 8070
+  - containerPort: 8761
   env:
   - name: SPRING_CONFIG_IMPORT
     valueFrom: {configMapKeyRef: {name: eazybank-configmap, key: SPRING_CONFIG_IMPORT}}
@@ -37,16 +37,16 @@ containers:
   pattern as every other service in this app.
 
 **Probes/Resources**: identical shape and values to `configserver` - `/actuator/health/*`
-probes on port 8070, `250m/384Mi` requests, `500m/700Mi` limits.
+probes on port 8761, `250m/384Mi` requests, `500m/700Mi` limits.
 
 ## The Service
 
 ```yaml
 type: LoadBalancer
 ports:
-  - port: 8070
-    targetPort: 8070
+  - port: 8761
+    targetPort: 8761
 ```
 Same reasoning as configserver's Service: exposed externally mostly for convenience (you can
-open `http://<external-ip>:8070` in a browser to see Eureka's dashboard of registered
+open `http://<external-ip>:8761` in a browser to see Eureka's dashboard of registered
 services), not because outside clients need it for the app to function.

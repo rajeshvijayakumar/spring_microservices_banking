@@ -8,7 +8,7 @@ metadata:
 data:
   SPRING_PROFILES_ACTIVE: "prod"
   SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
-  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8070/eureka/"
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8761/eureka/"
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI: "http://keycloak:7080/realms/master/protocol/openid-connect/certs"
   KAFKA_BROKER: "kafka:9092"
   REDIS_HOST: "redis"

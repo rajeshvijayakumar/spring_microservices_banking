@@ -11,7 +11,7 @@ metadata:
 data:
   SPRING_PROFILES_ACTIVE: "prod"
   SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
-  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8070/eureka/"
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8761/eureka/"
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI: "http://keycloak:7080/realms/master/protocol/openid-connect/certs"
   KAFKA_BROKER: "kafka:9092"
   REDIS_HOST: "redis"
@@ -38,7 +38,7 @@ reach the config server?" or "what Kafka broker address does everything point at
 - `SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"` - tells each Spring Boot
   app "go fetch your configuration from the Config Server at this address" instead of only
   using what's baked into the jar.
-- `EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8070/eureka/"` - the address
+- `EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8761/eureka/"` - the address
   of the service registry (Eureka) that every microservice registers itself with, and looks
   other services up in.
 - `SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI` - the URL the gateway calls to
