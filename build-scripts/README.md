@@ -69,7 +69,7 @@ build-scripts\build-images.cmd -p --push cards
   `jib:dockerBuild` step as always), runs `docker push` for that image before moving on —
   the same two steps you'd run by hand, just chained together and never pushing a build that
   failed. The image ref is read straight out of each service's `pom.xml` (`<to><image>`,
-  currently `eazybytes/<service>:s6` on Docker Hub) rather than hardcoded here, so it can't
+  currently `rajeshvjlearn/<service>:s6` on Docker Hub) rather than hardcoded here, so it can't
   drift out of sync if the tag changes later. Combine freely with `--parallel`/`-p` and
   specific service names.
 - **Exit code**: non-zero if any service fails to build (or push). In sequential mode the script
