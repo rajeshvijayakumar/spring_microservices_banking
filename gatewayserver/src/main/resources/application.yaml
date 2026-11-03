@@ -10,13 +10,17 @@ spring:
     gateway:
       server:
         webflux:
-          discovery:
-            locator:
-              enabled: false # default routes(ex: http://locahost:8072/account/create)) will be disabled and our custom routing will be only accessible (ex: http://locahost:8072/eaxybank/account/create)
-              lowerCaseServiceId: true # accepting lowercase path names in the URI..
+#          discovery:
+#            locator:
+#              enabled: false # default routes(ex: http://locahost:8072/account/create)) will be disabled and our custom routing will be only accessible (ex: http://locahost:8072/eaxybank/account/create)
+#              lowerCaseServiceId: true # accepting lowercase path names in the URI..
           httpclient:
             connect-timeout: 1000
             response-timeout: 10s
+    kubernetes:
+      discovery:
+        all-namespaces: true
+        enabled: true
   security:
     oauth2:
       resourceserver:
