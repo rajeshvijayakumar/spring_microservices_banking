@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: accounts
-        image: rajeshvjlearn/accounts:v4
+        image: rajeshvjlearn/accounts:v5
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

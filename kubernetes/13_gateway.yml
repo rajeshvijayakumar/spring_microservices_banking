@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: gatewayserver
-        image: rajeshvjlearn/gatewayserver:v4
+        image: rajeshvjlearn/gatewayserver:v5
         imagePullPolicy: Always
         ports:
         - containerPort: 8072

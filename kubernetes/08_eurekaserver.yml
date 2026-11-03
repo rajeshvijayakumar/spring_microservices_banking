@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: eurekaserver
-        image: rajeshvjlearn/eurekaserver:v4
+        image: rajeshvjlearn/eurekaserver:v5
         imagePullPolicy: Always
         ports:
         - containerPort: 8761

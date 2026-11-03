@@ -12,7 +12,7 @@ the first of three "business" microservices in this app (alongside loans and car
 ```yaml
 containers:
 - name: accounts
-  image: rajeshvjlearn/accounts:v4
+  image: rajeshvjlearn/accounts:v5
   ports:
   - containerPort: 8080
   env:

@@ -22,7 +22,7 @@ different layers.
 ```yaml
 containers:
 - name: eurekaserver
-  image: rajeshvjlearn/eurekaserver:v4
+  image: rajeshvjlearn/eurekaserver:v5
   ports:
   - containerPort: 8761
   env:

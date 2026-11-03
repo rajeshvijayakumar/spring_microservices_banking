@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: configserver
-        image: rajeshvjlearn/configserver:v4
+        image: rajeshvjlearn/configserver:v5
         imagePullPolicy: Always
         ports:
         - containerPort: 8071

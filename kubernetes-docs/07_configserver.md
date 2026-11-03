@@ -17,7 +17,7 @@ that's why, unlike the other services, it has no `SPRING_CONFIG_IMPORT` or
 ```yaml
 containers:
 - name: configserver
-  image: rajeshvjlearn/configserver:v4
+  image: rajeshvjlearn/configserver:v5
   ports:
   - containerPort: 8071
   env:
@@ -28,7 +28,7 @@ containers:
   - name: MANAGEMENT_OTLP_METRICS_EXPORT_URL
     valueFrom: {configMapKeyRef: {name: eazybank-configmap, key: OTLP_METRICS_ENDPOINT}}
 ```
-- `image: rajeshvjlearn/configserver:v4` - the app image, tagged `v4` (v4 build). 
+- `image: rajeshvjlearn/configserver:v5` - the app image, tagged `v4` (v4 build). 
 - Bumping this tag is how you deploy a new version of the code.
 - The three `MANAGEMENT_OPENTELEMETRY_*`/`MANAGEMENT_OTLP_*` env vars point this service at
   the Grafana-LGTM stack ([`04_grafana-lgtm.yml`](04_grafana-lgtm.md)) so its traces, logs,

@@ -16,7 +16,7 @@ Eureka to find them, Keycloak to validate tokens against, and Redis for rate lim
 ```yaml
 containers:
 - name: gatewayserver
-  image: rajeshvjlearn/gatewayserver:v4
+  image: rajeshvjlearn/gatewayserver:v5
   ports:
   - containerPort: 8072
   env:

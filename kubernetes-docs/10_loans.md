@@ -6,7 +6,7 @@ vars, probes, and resources - just running the loans business logic instead.
 
 ## What's different from `accounts`
 
-- `image: rajeshvjlearn/loans:v4` instead of `rajeshvjlearn/accounts:v4`.
+- `image: rajeshvjlearn/loans:v5` instead of `rajeshvjlearn/accounts:v5`.
 - Container port `8090` instead of `8080` (and the Service's `port`/`targetPort` match, so
   it's reachable at `loans:8090`).
 - **No Kafka environment variable.** `loans`'s code doesn't publish or consume any Kafka

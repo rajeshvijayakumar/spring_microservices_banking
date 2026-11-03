@@ -7,7 +7,7 @@ wiring.
 
 ## What's different from `accounts`/`loans`
 
-- `image: rajeshvjlearn/cards:v4`.
+- `image: rajeshvjlearn/cards:v5`.
 - Container port `9000` (Service also uses `port`/`targetPort: 9000`, reachable at
   `cards:9000`).
 - Like `loans`, **no Kafka environment variable** - `cards`'s code doesn't publish or

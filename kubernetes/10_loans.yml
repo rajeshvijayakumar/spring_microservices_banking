@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: loans
-        image: rajeshvjlearn/loans:v4
+        image: rajeshvjlearn/loans:v5
         imagePullPolicy: Always
         ports:
         - containerPort: 8090

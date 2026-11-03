@@ -27,7 +27,7 @@ consume and publish events. That means:
 ```yaml
 containers:
 - name: message
-  image: rajeshvjlearn/message:v4
+  image: rajeshvjlearn/message:v5
   imagePullPolicy: Always
   env:
   - name: SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS

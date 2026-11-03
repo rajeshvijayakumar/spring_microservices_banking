@@ -36,9 +36,9 @@ what each Deployment's `selector.matchLabels` and each Service's `selector` matc
 one running copy: which container image, which ports, which environment variables. The
 Deployment stamps out copies of this template.
 
-**`imagePullPolicy: Always`** - the app images (`rajeshvjlearn/<service>:v4`) keep the same tag
+**`imagePullPolicy: Always`** - the app images (`rajeshvjlearn/<service>:v5`) keep the same tag
 every time they're rebuilt and pushed. For a tag like that, Kubernetes defaults to
-`IfNotPresent`: if a node already has *an* image called `rajeshvjlearn/accounts:v4`, it reuses
+`IfNotPresent`: if a node already has *an* image called `rajeshvjlearn/accounts:v5`, it reuses
 that cached copy and never checks Docker Hub, so you keep running the old build. `Always`
 makes the node check Docker Hub on every pod start and pull the image if it has changed.
 After pushing a new image, `kubectl rollout restart deployment -n eazybank` picks it up.
