@@ -25,6 +25,7 @@ spec:
       app: {{ .Values.appLabel }}
   template:
     metadata:
+      name: {{ .Values.deploymentName }}
       labels:
         {{- include "eazybank.podLabels" (dict "ctx" . "name" .Values.appLabel) | nindent 8 }}
     spec:

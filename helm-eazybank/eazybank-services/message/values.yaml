@@ -1,4 +1,4 @@
-ploymentName: message-deployment
+deploymentName: message-deployment
 serviceName: message
 appLabel: message
 
