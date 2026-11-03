@@ -26,3 +26,7 @@ discovery_enabled: true
 resouceserver_enabled: false
 otel_enabled: true
 kafka_enabled: true
+
+startupProbe:
+  failureThreshold: 30
+  periodSeconds: 5
