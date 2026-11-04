@@ -5,8 +5,8 @@ dependencies:
 - name: configserver
   repository: file://../eazybank-services/configserver
   version: 0.1.0
-- name: eurekaserver
-  repository: file://../eazybank-services/eurekaserver
+- name: discoveryserver
+  repository: file://../eazybank-services/discoveryserver
   version: 0.1.0
 - name: accounts
   repository: file://../eazybank-services/accounts
@@ -23,5 +23,5 @@ dependencies:
 - name: message
   repository: file://../eazybank-services/message
   version: 0.1.0
-digest: sha256:9104502df19e6932b5b6d524d6bc80077dc4080985b5f2be93569de208ed1871
-generated: "2026-11-03T15:00:37.569467+05:30"
+digest: sha256:bce8770efdf152514347e88a8c81414564320aa889c70f1fe138add0153d68ff
+generated: "2026-11-03T19:47:11.802541+05:30"

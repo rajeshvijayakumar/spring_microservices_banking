@@ -23,7 +23,10 @@ global:
   # and values/values-prod.yaml to prod.
   springProfilesActive: default
   springConfigImport: "configserver:http://configserver:8071/"
-  eurekaServiceUrl: "http://eurekaserver:8070/eureka/"
+  # Spring Cloud Kubernetes Discovery Server (replaces Eureka). Services with
+  # discoveryEnabled: true get this as
+  # spring.cloud.kubernetes.discovery.discovery-server-url.
+  discoveryServerUrl: "http://spring-cloud-kubernetes-discoveryserver:80"
   jwkSetUri: "http://keycloak:7080/realms/master/protocol/openid-connect/certs"
   kafkaBroker: "kafka:9092"
   redisHost: "redis"

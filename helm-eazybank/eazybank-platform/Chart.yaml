@@ -3,7 +3,7 @@ name: eazybank-platform
 description: Top-level umbrella chart - installs the entire eazybank platform (infra + all microservices) in one release
 type: application
 version: 0.1.0
-appVersion: "v4"
+appVersion: "v5"
 
 dependencies:
   - name: eazybank-common
@@ -14,9 +14,9 @@ dependencies:
     version: 0.1.0
     repository: "file://../eazybank-services/configserver"
 
-  - name: eurekaserver
+  - name: discoveryserver
     version: 0.1.0
-    repository: "file://../eazybank-services/eurekaserver"
+    repository: "file://../eazybank-services/discoveryserver"
 
   - name: accounts
     version: 0.1.0

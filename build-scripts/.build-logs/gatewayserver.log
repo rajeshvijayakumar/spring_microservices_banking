@@ -1,0 +1,173 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< com.eazybytes:gatewayserver >---------------------
+[INFO] Building  0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ gatewayserver ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ gatewayserver ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- jib:3.5.2:dockerBuild (default-cli) @ gatewayserver ---
+[WARNING] 'mainClass' configured in 'maven-jar-plugin' is not a valid Java class: ${start-class}
+[INFO] 
+[INFO] Containerizing application to Docker daemon as rajeshvjlearn/gatewayserver:v5...
+[WARNING] Base image 'eclipse-temurin:25-jre' does not use a specific image digest - build may not be reproducible
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/Users/rajeshvijayakumar/.m2/repository/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[INFO] Getting manifest for base image eclipse-temurin:25-jre...
+[INFO] Building dependencies layer...
+[INFO] Building resources layer...
+[INFO] Building classes layer...
+[INFO] Building jvm arg files layer...
+[INFO] The base image requires auth. Trying again for eclipse-temurin:25-jre...
+[WARNING] The credential helper (docker-credential-desktop) has nothing for server URL: registry-1.docker.io
+
+Got output:
+
+credentials not found in native keychain
+
+[WARNING] The credential helper (docker-credential-desktop) has nothing for server URL: registry.hub.docker.com
+
+Got output:
+
+credentials not found in native keychain
+
+[INFO] Using credentials from Docker config (/Users/rajeshvijayakumar/.docker/config.json) for eclipse-temurin:25-jre
+[INFO] Using base image with digest: sha256:ecdc0adb37bde1a281c4d245a3cd535004b1fc8322d560f5b09463b248c81df0
+[INFO] 
+[INFO] Container entrypoint set to [java, -cp, @/app/jib-classpath-file, com.eazybytes.gatewayserver.GatewayserverApplication]
+[INFO] Loading to Docker daemon...
+[INFO] 
+[INFO] Built image to Docker daemon as rajeshvjlearn/gatewayserver:v5
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.259 s
+[INFO] Finished at: 2026-11-03T19:26:31+05:30
+[INFO] ------------------------------------------------------------------------
+The push refers to repository [docker.io/rajeshvjlearn/gatewayserver]
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+edafa32f5d9e: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+280dbd83d621: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+280dbd83d621: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+edafa32f5d9e: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+280dbd83d621: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+fc9a3680de99: Waiting
+280dbd83d621: Layer already exists
+f3f25b84a7d7: Layer already exists
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+4f4fb700ef54: Waiting
+4f4fb700ef54: Waiting
+fc9a3680de99: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+fc9a3680de99: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Waiting
+4f4fb700ef54: Waiting
+4f4fb700ef54: Waiting
+fc9a3680de99: Waiting
+9ce1bc7852a0: Waiting
+edafa32f5d9e: Layer already exists
+9ce1bc7852a0: Layer already exists
+4f4fb700ef54: Waiting
+fc9a3680de99: Waiting
+4f4fb700ef54: Waiting
+fc9a3680de99: Waiting
+fc9a3680de99: Waiting
+a200bdd84c02: Waiting
+4f4fb700ef54: Waiting
+a200bdd84c02: Waiting
+4f4fb700ef54: Layer already exists
+fc9a3680de99: Layer already exists
+a200bdd84c02: Waiting
+a200bdd84c02: Waiting
+a200bdd84c02: Layer already exists
+d08f4ac6fbe0: Waiting
+d08f4ac6fbe0: Waiting
+d08f4ac6fbe0: Waiting
+d08f4ac6fbe0: Layer already exists
+fd4d1db9e215: Waiting
+fd4d1db9e215: Waiting
+fd4d1db9e215: Waiting
+d33f563203c7: Waiting
+fd4d1db9e215: Layer already exists
+d33f563203c7: Waiting
+d33f563203c7: Waiting
+d33f563203c7: Layer already exists
+v5: digest: sha256:7122a811b4b37e207e0fef030e10c2ae03f54e0f046606f04b95396be3619746 size: 1887

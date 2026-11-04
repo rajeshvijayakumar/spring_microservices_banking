@@ -25,10 +25,12 @@ spec:
       app: {{ .Values.appLabel }}
   template:
     metadata:
-      name: {{ .Values.deploymentName }}
       labels:
         {{- include "eazybank.podLabels" (dict "ctx" . "name" .Values.appLabel) | nindent 8 }}
     spec:
+      {{- with .Values.serviceAccountName}}
+      serviceAccountName: {{ . }}
+      {{- end }}
       containers:
         - name: {{ .Values.appLabel }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -51,12 +53,12 @@ spec:
                   name: {{ .Values.global.configMapName }}
                   key: SPRING_CONFIG_IMPORT
             {{- end }}
-            {{- if .Values.eurekaEnabled }}
-            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+            {{- if .Values.discoveryEnabled }}
+            - name: SPRING_CLOUD_KUBERNETES_DISCOVERY_DISCOVERY_SERVER_URL
               valueFrom:
                 configMapKeyRef:
                   name: {{ .Values.global.configMapName }}
-                  key: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+                  key: SPRING_CLOUD_KUBERNETES_DISCOVERY_DISCOVERY_SERVER_URL
             {{- end }}
             {{- if .Values.jwkEnabled }}
             - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI

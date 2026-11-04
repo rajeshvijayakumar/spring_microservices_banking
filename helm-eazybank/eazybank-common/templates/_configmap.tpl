@@ -12,7 +12,7 @@ metadata:
 data:
   SPRING_PROFILES_ACTIVE: {{ .Values.global.springProfilesActive | quote }}
   SPRING_CONFIG_IMPORT: {{ .Values.global.springConfigImport | quote }}
-  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: {{ .Values.global.eurekaServiceUrl | quote }}
+  SPRING_CLOUD_KUBERNETES_DISCOVERY_DISCOVERY_SERVER_URL: {{ .Values.global.discoveryServerUrl | quote }}
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI: {{ .Values.global.jwkSetUri | quote }}
   KAFKA_BROKER: {{ .Values.global.kafkaBroker | quote }}
   REDIS_HOST: {{ .Values.global.redisHost | quote }}

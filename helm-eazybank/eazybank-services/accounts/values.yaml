@@ -6,11 +6,11 @@ serviceName: accounts
 appLabel: accounts
 appName: accounts
 
-replicaCount: 2
+replicaCount: 1
 
 image:
-  repository: eazybytes/accounts
-  tag: v4
+  repository: rajeshvjlearn/accounts
+  tag: v5
 
 containerPort: 8080
 
@@ -22,7 +22,7 @@ service:
 appname_enabled: true
 profile_enabled: true
 config_enabled: true
-discovery_enabled: true
+discovery_enabled: true  # instead of eurekaEnabled, we need to use discoveryEnabled for kubernetes service discovery service
 resouceserver_enabled: false
 otel_enabled: true
 kafka_enabled: true

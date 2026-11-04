@@ -1,0 +1,128 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.eazybytes:cards:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-compiler-plugin @ line 198, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------------< com.eazybytes:cards >-------------------------
+[INFO] Building cards 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ cards ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ cards ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- jib:3.5.2:dockerBuild (default-cli) @ cards ---
+[WARNING] 'mainClass' configured in 'maven-jar-plugin' is not a valid Java class: ${start-class}
+[INFO] 
+[INFO] Containerizing application to Docker daemon as rajeshvjlearn/cards:v5...
+[WARNING] Base image 'eclipse-temurin:25-jre' does not use a specific image digest - build may not be reproducible
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/Users/rajeshvijayakumar/.m2/repository/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[INFO] Getting manifest for base image eclipse-temurin:25-jre...
+[INFO] Building jvm arg files layer...
+[INFO] Building dependencies layer...
+[INFO] Building resources layer...
+[INFO] Building classes layer...
+[INFO] The base image requires auth. Trying again for eclipse-temurin:25-jre...
+[WARNING] The credential helper (docker-credential-desktop) has nothing for server URL: registry-1.docker.io
+
+Got output:
+
+credentials not found in native keychain
+
+[WARNING] The credential helper (docker-credential-desktop) has nothing for server URL: registry.hub.docker.com
+
+Got output:
+
+credentials not found in native keychain
+
+[INFO] Using credentials from Docker config (/Users/rajeshvijayakumar/.docker/config.json) for eclipse-temurin:25-jre
+[INFO] Using base image with digest: sha256:ecdc0adb37bde1a281c4d245a3cd535004b1fc8322d560f5b09463b248c81df0
+[INFO] 
+[INFO] Container entrypoint set to [java, -cp, @/app/jib-classpath-file, com.eazybytes.cards.CardsApplication]
+[INFO] Loading to Docker daemon...
+[INFO] 
+[INFO] Built image to Docker daemon as rajeshvjlearn/cards:v5
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16.593 s
+[INFO] Finished at: 2026-11-03T19:26:35+05:30
+[INFO] ------------------------------------------------------------------------
+The push refers to repository [docker.io/rajeshvjlearn/cards]
+edafa32f5d9e: Waiting
+edafa32f5d9e: Waiting
+edafa32f5d9e: Waiting
+edafa32f5d9e: Waiting
+edafa32f5d9e: Waiting
+edafa32f5d9e: Waiting
+edafa32f5d9e: Waiting
+edafa32f5d9e: Waiting
+edafa32f5d9e: Waiting
+f3f25b84a7d7: Waiting
+edafa32f5d9e: Waiting
+f3f25b84a7d7: Waiting
+edafa32f5d9e: Waiting
+f3f25b84a7d7: Waiting
+edafa32f5d9e: Waiting
+f3f25b84a7d7: Waiting
+edafa32f5d9e: Layer already exists
+f3f25b84a7d7: Waiting
+f3f25b84a7d7: Waiting
+f3f25b84a7d7: Waiting
+9ce1bc7852a0: Waiting
+f3f25b84a7d7: Layer already exists
+9ce1bc7852a0: Waiting
+9ce1bc7852a0: Waiting
+9ce1bc7852a0: Layer already exists
+280dbd83d621: Waiting
+280dbd83d621: Waiting
+280dbd83d621: Waiting
+280dbd83d621: Layer already exists
+4f4fb700ef54: Waiting
+4f4fb700ef54: Waiting
+4f4fb700ef54: Waiting
+4f4fb700ef54: Layer already exists
+fc9a3680de99: Waiting
+fc9a3680de99: Waiting
+fc9a3680de99: Waiting
+fc9a3680de99: Layer already exists
+352e827d9bc0: Waiting
+352e827d9bc0: Waiting
+352e827d9bc0: Waiting
+12e8e4fab558: Waiting
+352e827d9bc0: Layer already exists
+12e8e4fab558: Waiting
+12e8e4fab558: Waiting
+12e8e4fab558: Waiting
+12e8e4fab558: Waiting
+12e8e4fab558: Waiting
+f210e254fad4: Waiting
+12e8e4fab558: Waiting
+f210e254fad4: Waiting
+12e8e4fab558: Waiting
+f210e254fad4: Waiting
+12e8e4fab558: Waiting
+f210e254fad4: Waiting
+12e8e4fab558: Waiting
+f210e254fad4: Layer already exists
+70233e0d39b0: Waiting
+70233e0d39b0: Waiting
+70233e0d39b0: Waiting
+70233e0d39b0: Waiting
+70233e0d39b0: Waiting
+70233e0d39b0: Layer already exists
+12e8e4fab558: Pushed
+v5: digest: sha256:afed6769019f70537d85214d0390671a67d025f37f6e89e18420540da287f2f4 size: 1888

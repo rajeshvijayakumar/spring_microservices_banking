@@ -5,8 +5,8 @@ appLabel: message
 replicaCount: 1
 
 image:
-  repository: eazybytes/message
-  tag: v4
+  repository: rajeshvjlearn/message
+  tag: v5
 
 # No containerPort - this service has no HTTP surface (Kafka
 # consumer/producer only), so eazybank-common's deployment template skips

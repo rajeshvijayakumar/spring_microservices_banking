@@ -9,8 +9,8 @@ appName: configserver
 replicaCount: 1
 
 image:
-  repository: eazybytes/configserver
-  tag: v4
+  repository: rajeshvjlearn/configserver
+  tag: v5
 
 containerPort: 8071
 
@@ -22,7 +22,7 @@ service:
 appname_enabled: true
 profile_enabled: false
 config_enabled: false
-discovery_enabled: false
+discovery_enabled: false # instead of eurekaEnabled, we need to use discoveryEnabled for kubernetes service discovery service
 resouceserver_enabled: false
 otel_enabled: true
 kafka_enabled: false
